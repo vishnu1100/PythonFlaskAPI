@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask API Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        form {
+            margin: 20px 0;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #response {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Flask API Test</h1>
+
+    <h2>Test GET Endpoint</h2>
+    <button onclick="testGet()">Test /test Endpoint</button>
+
+    <h2>Test POST Endpoint</h2>
+    <form id="postForm">
+        <label for="content">Content:</label>
+        <input type="text" id="content" name="content" required>
+        <button type="submit">Send POST Request</button>
+    </form>
+
+    <div id="response"></div>
+
+    <script>
+        const baseUrl = 'http://127.0.0.1:5000';  // Base URL for your Flask API
+
+        // Function to test the GET endpoint
+        function testGet() {
+            fetch(`${baseUrl}/test`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('response').innerHTML = JSON.stringify(data, null, 2);
+                })
+                .catch(error => {
+                    document.getElementById('response').innerHTML = 'Error: ' + error;
+                });
+        }
+
+        // Function to handle the POST request
+        document.getElementById('postForm').addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            const content = document.getElementById('content').value;
+
+            fetch(`${baseUrl}/test_post`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ content: content })  // Send JSON data
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').innerHTML = JSON.stringify(data, null, 2);
+            })
+            .catch(error => {
+                document.getElementById('response').innerHTML = 'Error: ' + error;
+            });
+        });
+    </script>
+</body>
+</html>
