@@ -1,0 +1,6 @@
+from flask_cors import CORS  #### Import CORS
+
+CORS(app, origins=["http://127.0.0.1:5500"])  #### Allow the specific origin 
+
+
+------pip freeze >  requirements.txt
