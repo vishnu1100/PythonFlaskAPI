@@ -54,7 +54,7 @@ def register():
     # Check if user already exists
     existing_user = User.query.filter_by(username=username).first()
     if existing_user:
-        return jsonify({'message': 'Username already exists'}), 400
+        return jsonify({'message': 'Username already exists code 400'}), 400
 
     # Create a new user
     new_user = User(username=username, password=password)
@@ -65,7 +65,7 @@ def register():
     export_database()
     
 
-    return jsonify({'message': 'Registration successful'}), 201
+    return jsonify({'message': 'Registration successful code 201'}), 201
 
 # Login Route
 @app.route('/login', methods=['POST'])
@@ -76,9 +76,9 @@ def login():
     # Check credentials
     user = User.query.filter_by(username=username, password=password).first()
     if user:
-        return jsonify({'message': 'Login successful'}), 200
+        return jsonify({'message': 'Login successful code 200'}), 200
     else:
-        return jsonify({'message': 'Invalid credentials'}), 401
+        return jsonify({'message': 'Invalid credentials code 401'}), 401
 
 # Show all users (without passwords)
 @app.route('/users', methods=['GET'])
