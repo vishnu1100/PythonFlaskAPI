@@ -29,7 +29,6 @@ Pint==0.21.1
 pymongo==3.13.0
 python-dateutil==2.9.0.post0
 pytz==2024.2
-PyYAML
 regex==2024.9.11
 requests==2.32.3
 safetensors==0.4.5
