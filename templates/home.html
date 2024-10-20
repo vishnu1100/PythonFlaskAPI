@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management API Documentation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            padding: 20px;
+        }
+        h1, h2 {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>User Management API Documentation Using Flask </h1>
+    <p>This API supports user registration, login, and displaying all registered users.</p>
+
+    <h2>Installation</h2>
+    <p>To install and run the application, follow these steps:</p>
+    <ol>
+        <li>Clone the repository: <code>git clone <repository-url></code></li>
+        <li>Navigate to the project directory: <code>cd <project-directory></code></li>
+        <li>Install dependencies: <code>pip install -r requirements.txt</code></li>
+        <li>Run the application: <code>python app.py</code></li>
+    </ol>
+
+    <h2>API Endpoints</h2>
+    <h3>1. Registration</h3>
+    <p><strong>Endpoint:</strong> <code>/register</code></p>
+    <p><strong>Method:</strong> POST</p>
+    <p><strong>Request Parameters:</strong></p>
+    <ul>
+        <li><code>username</code> (string): The username of the new user.</li>
+        <li><code>password</code> (string): The password for the new user.</li>
+    </ul>
+    <p><strong>Response:</strong></p>
+    <pre>{
+  "message": "Registration successful"
+}</pre>
+    
+    <h3>2. Login</h3>
+    <p><strong>Endpoint:</strong> <code>/login</code></p>
+    <p><strong>Method:</strong> POST</p>
+    <p><strong>Request Parameters:</strong></p>
+    <ul>
+        <li><code>username</code> (string): The username of the user.</li>
+        <li><code>password</code> (string): The password of the user.</li>
+    </ul>
+    <p><strong>Response:</strong></p>
+    <pre>{
+  "message": "Login successful"
+}</pre>
+
+    <h3>3. Get Users</h3>
+    <p><strong>Endpoint:</strong> <code>/users</code></p>
+    <p><strong>Method:</strong> GET</p>
+    <p><strong>Response:</strong></p>
+    <pre>{
+  "users": ["user1", "user2", "user3"]
+}</pre>
+
+    <h2>Usage Examples</h2>
+    <p>Below are examples of how to use the API with Postman or cURL:</p>
+    <h3>Registration Example (cURL)</h3>
+    <pre>curl -X POST http://127.0.0.1:5000/register -d "username=your_username&password=your_password"</pre>
+
+    <h3>Login Example (cURL)</h3>
+    <pre>curl -X POST http://127.0.0.1:5000/login -d "username=your_username&password=your_password"</pre>
+
+
+    <h2>Contribution</h2>
+    <p>You can contribute to this project <a href="https://github.com/vishnu1100/PythonFlaskAPI" target="_blank">GITHUB</a></p>
+
+    <h2>Contact Me</h2>
+    <p><a href="https://vishnusanthosh.info/" target="_blank">Here</a> </p>
+
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -3,4 +3,4 @@ from flask_cors import CORS  #### Import CORS
 CORS(app, origins=["*"])  #### Allow the specific origin 
 
 
-pip freeze >  requirements.txt
+pip freeze >  requirements.txt  ###  Save the dependencies to a file
