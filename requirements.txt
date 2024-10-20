@@ -2,7 +2,6 @@ backports.zoneinfo==0.2.1
 blinker==1.8.2
 certifi==2024.8.30
 charset-normalizer==3.4.0
-chatterbot-corpus==1.2.0
 click==8.1.7
 clock==0.1
 colorama==0.4.6
@@ -11,7 +10,6 @@ Flask==3.0.3
 Flask-Cors==5.0.0
 fsspec==2024.9.0
 greenlet==3.1.1
-huggingface-hub==0.25.2
 idna==3.10
 importlib_metadata==8.5.0
 itsdangerous==2.2.0
