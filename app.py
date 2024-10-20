@@ -42,6 +42,11 @@ def push_to_github():
         subprocess.run(["git", "config", "user.email", "RenderAutomatedcommit@example.com"], check=True)
         subprocess.run(["git", "config", "user.name", "RenderAutomatedcommit"], check=True)
         
+       
+        # Add the remote repository if it’s not already set
+        subprocess.run(["git", "remote", "add", "origin", "https://github.com/vishnu1100/PythonFlaskAPI.git"], check=True)
+
+
         # Add, commit, and push the backup file
         subprocess.run(["git", "add", "backup.sql"], check=True)
         subprocess.run(["git", "commit", "-m", "Automated backup of the database"], check=True)
