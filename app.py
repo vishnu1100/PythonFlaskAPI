@@ -63,7 +63,7 @@ def register():
 
     # Export the database and push to GitHub
     export_database()
-    push_to_github()
+    
 
     return jsonify({'message': 'Registration successful'}), 201
 
