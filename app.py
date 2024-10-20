@@ -1,8 +1,9 @@
-from flask import Flask, request, jsonify, render_template_string
+from flask import Flask, request, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 import os
-from flask import Flask, render_template
+import sqlite3
+import subprocess
 
 app = Flask(__name__)
 
@@ -22,6 +23,23 @@ class User(db.Model):
 # Create the database and tables
 with app.app_context():
     db.create_all()
+
+# Function to export database to SQL file
+def export_database():
+    conn = sqlite3.connect('users.db')
+    with open('backup.sql', 'w') as f:
+        for line in conn.iterdump():
+            f.write('%s\n' % line)
+    conn.close()
+
+# Function to push the backup to GitHub
+def push_to_github():
+    try:
+        subprocess.run(["git", "add", "backup.sql"], check=True)
+        subprocess.run(["git", "commit", "-m", "Automated backup of the database"], check=True)
+        subprocess.run(["git", "push"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"Error during git push: {e}")
 
 # Default route for root URL
 @app.route('/')
@@ -43,6 +61,10 @@ def register():
     new_user = User(username=username, password=password)
     db.session.add(new_user)
     db.session.commit()
+
+    # Export the database and push to GitHub
+    export_database()
+    push_to_github()
 
     return jsonify({'message': 'Registration successful'}), 201
 
