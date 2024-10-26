@@ -35,3 +35,6 @@ The password for the new user.
 ### Login Example (cURL) ```bash curl -X POST https://pythonflaskapi-gvv5.onrender.com/login -d "username=your_username&password=your_password" ``` 
 ## Contribution You can contribute to this project on [GitHub](https://github.com/vishnu1100/PythonFlaskAPI). 
 ## Contact Me [Here](https://vishnusanthosh.info/)
+
+# Disclaimer 
+## This API is for testing frontend apps functionality in login and registration through API request, so after every 24hr the complete database will be flushed.
