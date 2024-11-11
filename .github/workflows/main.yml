@@ -1,0 +1,13 @@
+name: Keep Flask API Active
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # Every 5 minutes
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send GET request to keep server active
+        run: |
+          curl -X GET https://pythonflaskapi-gvv5.onrender.com/users
